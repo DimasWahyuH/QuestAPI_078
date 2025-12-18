@@ -99,7 +99,7 @@ fun HomeBody(
             is StatusUiSiswa.Loading -> LoadingScreen()
             is StatusUiSiswa.Success -> DaftarSiswa(itemSiswa = statusUiSiswa
                 .siswa,
-                onSiswaClick = { onSiswaClick(it.id) } )
+                onSiswaClick = {onSiswaClick(it.id)} )
             is StatusUiSiswa.Error -> ErrorScreen(
                 retryAction,
                 modifier = modifier.fillMaxSize()
