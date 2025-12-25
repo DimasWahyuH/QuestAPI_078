@@ -7,6 +7,8 @@ import com.example.questapi_078.modeldata.DataSiswa
 interface RepositoryDataSiswa {
     suspend fun getDataSiswa() : List<DataSiswa>
     suspend fun postDataSiswa(dataSiswa: DataSiswa) :retrofit2.Response<Void>
+    suspend fun getSatuSiswa(id:Int) : DataSiswa
+
 }
 
 class JaringanRepositoryDataSiswa(
@@ -16,4 +18,5 @@ class JaringanRepositoryDataSiswa(
         .getSiswa()
     override suspend fun postDataSiswa(dataSiswa: DataSiswa):retrofit2
     .Response<Void> = serviceApiSiswa.postSiswa(dataSiswa)
+
 }
