@@ -1,10 +1,13 @@
 package com.example.questapi_078.viewmodel.provider
 
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.createSavedStateHandle
 import androidx.lifecycle.viewmodel.CreationExtras
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.questapi_078.repositori.AplikasiDataSiswa
+import com.example.questapi_078.viewmodel.DetailViewModel
+import com.example.questapi_078.viewmodel.EditViewModel
 import com.example.questapi_078.viewmodel.EntryViewModel
 import com.example.questapi_078.viewmodel.HomeViewModel
 
@@ -18,5 +21,11 @@ object PenyediaViewModel {
             .repositoryDataSiswa) }
         initializer { EntryViewModel(aplikasiDataSiswa().container
             .repositoryDataSiswa) }
-    }
+        initializer {
+            DetailViewModel(
+                this.createSavedStateHandle(),
+                aplikasiDataSiswa().container.repositoryDataSiswa
+            )
+        }
+
 }
