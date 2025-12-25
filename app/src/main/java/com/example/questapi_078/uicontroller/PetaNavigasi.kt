@@ -45,6 +45,9 @@ fun HostNavigasi(
             .itemIdArg) {
             type = NavType.IntType })
         ){
-
+            DetailSiswaScreen(navigateToEditItem = {navController.navigate("${DestinasiEdit.route}/$it")},
+                navigateBack = { navController.navigate(DestinasiHome.route) })
+        }
+        
     }
 }
